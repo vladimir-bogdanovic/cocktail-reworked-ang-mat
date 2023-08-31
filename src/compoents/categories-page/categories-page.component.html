@@ -1,0 +1,25 @@
+<div>
+  <div class="tabs-container">
+    <app-tab (OnTabSelect)="onTabChange($event)" [Data]="data"></app-tab>
+  </div>
+  <div class="category-list-container">
+    <mat-list
+      role="list"
+      *ngFor="let category of categoriesList"
+      (click)="
+        onCategorySelect(
+          category.strCategory ||
+            category.strGlass ||
+            category.strAlcoholic ||
+            ''
+        )
+      "
+    >
+      <mat-list-item role="listitem">
+        {{
+          category.strCategory || category.strAlcoholic || category.strGlass
+        }}</mat-list-item
+      >
+    </mat-list>
+  </div>
+</div>

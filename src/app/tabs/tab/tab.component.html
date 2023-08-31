@@ -1,0 +1,9 @@
+<div class="tabs-wraper">
+  <mat-tab-group
+    *ngFor="let tab of Data"
+    (click)="handleTabChange(tab)"
+    [class.selected]="tab.selected"
+  >
+    <mat-tab label="{{ tab.name }}"></mat-tab>
+  </mat-tab-group>
+</div>

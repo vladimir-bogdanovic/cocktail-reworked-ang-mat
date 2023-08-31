@@ -1,0 +1,12 @@
+<div class="single-category__wrapper">
+  <mat-card
+    class="example-card"
+    (click)="checkDetails(coctail.idDrink)"
+    *ngFor="let coctail of typeOfDrinkList"
+  >
+    <mat-card-header>
+      <mat-card-title>{{ coctail.strDrink }}</mat-card-title>
+    </mat-card-header>
+    <img mat-card-image src="{{ coctail.strDrinkThumb }}" alt="coctail-image" />
+  </mat-card>
+</div>

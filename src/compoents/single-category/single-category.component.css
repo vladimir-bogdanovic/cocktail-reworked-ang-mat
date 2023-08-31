@@ -1,0 +1,30 @@
+.example-card {
+  max-width: 200px;
+  height: 300px;
+  cursor: pointer;
+}
+
+.mat-mdc-card {
+  justify-content: inherit;
+}
+
+.example-header-image {
+  background-size: cover;
+  align-items: center;
+}
+.mat-mdc-card-header {
+  justify-content: center;
+}
+
+.single-category__wrapper {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  align-items: center;
+  padding-bottom: 100px;
+}
+
+.mdc-card {
+  margin-top: 30px;
+  margin-bottom: 5px;
+}

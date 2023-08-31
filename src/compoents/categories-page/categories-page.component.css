@@ -1,0 +1,19 @@
+.category-list-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  flex-direction: row;
+  margin-top: 40px;
+  padding-bottom: 100px;
+}
+
+.mat-mdc-list-item:not(.mat-mdc-list-item-interactive),
+.mat-mdc-list-option:not(.mat-mdc-list-item-interactive) {
+  cursor: pointer;
+}
+
+.mat-mdc-list-base {
+  margin: 10px;
+  background-color: aqua;
+}

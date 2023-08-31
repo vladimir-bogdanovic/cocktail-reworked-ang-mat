@@ -1,0 +1,15 @@
+.mat-tab-group {
+  margin-bottom: 48px;
+}
+
+.tabs-wraper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: 40px;
+}
+
+.selected {
+  background-color: rgb(215, 178, 130);
+}
