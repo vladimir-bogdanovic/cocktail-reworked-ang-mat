@@ -25,4 +25,8 @@ export class HeaderComponent {
   goToCategories() {
     this.navService.navigateTo('/categories');
   }
+
+  goToHomePage() {
+    this.navService.navigateTo('/welcome-page');
+  }
 }

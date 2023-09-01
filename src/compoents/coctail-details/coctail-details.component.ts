@@ -19,8 +19,9 @@ import { MatGridListModule } from '@angular/material/grid-list';
 export class CoctailDetailsComponent implements OnInit {
   coctailDetail: CoctailDetail = {} as CoctailDetail;
   coctailIngredient: (string | null)[] = [];
-  coctalAmount: (string | null)[] = [];
-  test!: string;
+  // coctalAmount: (string | null)[] = [];
+  tiles: Tile[] = [];
+  instructions: (string | null)[] = [];
 
   constructor(
     private coctailService: CoctailService,
@@ -32,49 +33,65 @@ export class CoctailDetailsComponent implements OnInit {
     this.coctailService
       .getCoctailDetails(id)
       .subscribe((resData: CoctailDetailResponse) => {
-        //  console.log(resData);
         this.coctailDetail = resData.drinks[0];
-        this.test = resData.drinks[0].strAlcoholic;
-        console.log(this.test);
         Object.entries(this.coctailDetail).map((data: string[]) => {
-          if (data[0].includes('strIngredient')) {
+          if (data[0].includes('strIngredient') && data[1] !== null) {
             this.coctailIngredient.push(data[1]);
           }
-          if (data[0].includes('strMeasure')) {
-            this.coctalAmount.push(data[1]);
+          // if (data[0].includes('strMeasure') && data[1] !== null) {
+          //   this.coctalAmount.push(data[1]);
+          // }
+          if (data[0] === 'strInstructions' && data[1] !== null) {
+            this.instructions.push(data[1]);
+            console.log(this.instructions);
           }
-          // console.log(this.coctailIngredient);
-          // console.log(this.coctalAmount);
         });
+        this.tiles = [
+          {
+            content: resData.drinks[0].strDrink,
+            cols: 5,
+            rows: 1,
+            color: 'lightgreen',
+          },
+          {
+            content: resData.drinks[0].strDrinkThumb,
+            cols: 2,
+            rows: 5,
+            color: 'lightblue',
+          },
+          {
+            content: `Category : ${resData.drinks[0].strCategory}`,
+            cols: 3,
+            rows: 1,
+            color: 'lightpink',
+          },
+          {
+            content: `Alcoholic: ${resData.drinks[0].strAlcoholic} `,
+            cols: 3,
+            rows: 1,
+            color: '#DDBDF1',
+          },
+          {
+            content: `Type of glass : ${resData.drinks[0].strGlass}`,
+            cols: 3,
+            rows: 1,
+            color: '#DDBDF1',
+          },
+          {
+            content: `Ingredients : ${this.coctailIngredient}`,
+            cols: 3,
+            rows: 1,
+            color: '#DDBDF1',
+          },
+          {
+            content: `Instructions: ${this.instructions}`,
+            cols: 3,
+            rows: 1,
+            color: '#DDBDF1',
+          },
+        ];
       });
-    this.tiles;
+
     console.log(this.tiles);
   }
-
-  tiles: Tile[] = [
-    {
-      content: this.coctailDetail.strDrinkThumb,
-      cols: 2,
-      rows: 4,
-      color: 'lightblue',
-    },
-    {
-      content: this.coctailDetail.idDrink,
-      cols: 1,
-      rows: 2,
-      color: 'lightgreen',
-    },
-    {
-      content: this.coctailDetail.strDrink,
-      cols: 1,
-      rows: 1,
-      color: 'lightpink',
-    },
-    {
-      content: this.test,
-      cols: 2,
-      rows: 1,
-      color: '#DDBDF1',
-    },
-  ];
 }

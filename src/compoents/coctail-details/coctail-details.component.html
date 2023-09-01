@@ -1,42 +1,4 @@
-<div class="wrapper">
-  <h2>{{ coctailDetail.strDrink }}</h2>
-  <div class="details">
-    <div class="img-container">
-      <img
-        src="{{ coctailDetail.strDrinkThumb }}"
-        alt="{{ coctailDetail.strImageAttribution }}"
-      />
-    </div>
-    <div class="body-container">
-      <div class="detail-list-container">
-        <p>Category:</p>
-        <p>{{ coctailDetail.strCategory }}</p>
-      </div>
-      <div class="detail-list-container">
-        <p>Alcoholic:</p>
-        <p>{{ coctailDetail.strAlcoholic }}</p>
-      </div>
-      <div class="detail-list-container">
-        <p>Type of Glass:</p>
-        <p>{{ coctailDetail.strGlass }}</p>
-      </div>
-
-      <div class="detail-list-container">
-        <h5>Ingredients:</h5>
-        <span *ngFor="let ingredient of coctailIngredient; let i = index">
-          {{ ingredient }} {{ coctalAmount[i] ? ":" + coctalAmount[i] : "" }}
-        </span>
-      </div>
-    </div>
-  </div>
-  <!-- <div
-    class="detail-list-instruction"
-    *ngIf="coctailDetail.strInstructions.length > 0"
-  >
-    <p>Making instruction:</p>
-    <p>{{ coctailDetail.strInstructions }}</p>
-  </div> -->
-
+<div class="cocktail-details-wrapper">
   <mat-grid-list cols="5" rowHeight="100px">
     <mat-grid-tile
       *ngFor="let tile of tiles"
